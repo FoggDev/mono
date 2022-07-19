@@ -1,0 +1,53 @@
+{
+  "name": "@web-builder/design-system",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production yarn clean && yarn compile && yarn webpack --config=devtools/webpack/webpack.config.ts --env mode=production",
+    "build:dev": "NODE_ENV=development yarn clean && yarn webpack --config=devtools/webpack/webpack.config.ts --env mode=development",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc",
+    "prepublishOnly": "npm run lint && npm run build",
+    "preview": "webpack serve --config devtools/webpack/webpack.config.ts  --env mode=development",
+    "test": "jest",
+    "versioning": "./scripts/versioning.sh"
+  },
+  "author": "Carlos Santana",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "dependencies": {
+    "@contentpi/lib": "^1.0.10",
+    "html-webpack-plugin": "^5.5.0",
+    "prismjs": "^1.27.0",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2",
+    "react-router-dom": "^6.2.2",
+    "slug": "^5.3.0",
+    "styled-components": "^5.3.3",
+    "typescript-plugin-styled-components": "^2.0.0",
+    "webpack": "^5.70.0",
+    "webpack-dev-server": "^4.7.4",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@types/prismjs": "^1.26.0",
+    "@types/react-dom": "^17.0.13",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.7.2",
+    "babel-plugin-prismjs": "^2.1.0",
+    "svg-url-loader": "^7.1.1",
+    "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "webpack-cli": "^4.9.2",
+    "webpackbar": "^5.0.2"
+  }
+}
